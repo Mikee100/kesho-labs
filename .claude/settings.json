@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node fiesta3.js \"./fiesta_shots\")",
+      "Bash(rm -f videos/walkthrough/*.webm)",
+      "Bash(node record1.js \"./videos/walkthrough\")",
+      "Bash(node check_pos_videos.js \".\")"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Inter";
+  --font-body: "Inter";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-zinc-800 dark:bg-ink-950 dark:text-zinc-200 font-body antialiased transition-colors duration-200;
+}
+
+::selection {
+  @apply bg-zinc-900 text-white dark:bg-white dark:text-zinc-900;
+}
+
+.card-hover {
+  @apply transition-colors duration-300 hover:border-zinc-400 dark:hover:border-zinc-600;
+}
+
+/* Auto-scrolling screenshot marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+.marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Monochrome — kept for pages that still reference it */
+.text-gradient {
+  @apply bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent;
+}
