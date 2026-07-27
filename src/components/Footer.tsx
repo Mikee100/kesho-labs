@@ -79,6 +79,14 @@ export default function Footer() {
                     Fiesta House Attire
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/projects/caseproz"
+                    className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  >
+                    CaseProz
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
