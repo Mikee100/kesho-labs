@@ -1,6 +1,6 @@
 export type Screenshot = {
   label: string;
-  /** Path under /public, e.g. "/screenshots/adeera-pos/checkout-catalog.png" */
+  /** Path under /public, e.g. "/screenshots/kesholabs-pos/checkout-catalog.png" */
   src?: string;
 };
 
@@ -9,7 +9,7 @@ export type Video = {
   description: string;
   /** YouTube video ID if hosted on YouTube. */
   youtubeId?: string;
-  /** Path to self-hosted video file under /public, e.g. "/videos/adeera-pos/making-a-sale.webm" */
+  /** Path to self-hosted video file under /public, e.g. "/videos/kesholabs-pos/making-a-sale.webm" */
   src?: string;
   /** Poster image path under /public */
   poster?: string;
@@ -95,21 +95,38 @@ export const projects: Project[] = [
       "Stripe",
     ],
     screenshots: [
-      // TODO: add real Adeera cloud screenshots to /public/screenshots/adeera/
-      { label: "Tenant Dashboard" },
-      { label: "Inventory & Catalog Control" },
-      { label: "Superadmin Blueprint Engine" },
+      { label: "Tenant Dashboard", src: "/screenshots/adeera/dashboard.png" },
+      { label: "Multi-Branch Sales Trends", src: "/screenshots/adeera/dashboard-trends.png" },
+      { label: "Sales Targets & Top Products", src: "/screenshots/adeera/sales-targets.png" },
+      { label: "Profit Insights & Sales Heatmap", src: "/screenshots/adeera/profit-insights.png" },
+      { label: "Product Catalog & Attributes", src: "/screenshots/adeera/inventory.png" },
+      { label: "Sales History & Receipts", src: "/screenshots/adeera/sales-history.png" },
+      { label: "Business Analytics Overview", src: "/screenshots/adeera/analytics.png" },
+      { label: "Business Reports Center", src: "/screenshots/adeera/reports.png" },
+      { label: "Credit Management", src: "/screenshots/adeera/credit.png" },
+      { label: "Plan Usage & Settings", src: "/screenshots/adeera/settings.png" },
     ],
     videos: [
       {
         title: "Adeera Business OS Architecture & Tour",
         description:
-          "A quick walk-through: tenant onboarding, blueprint provisioning, and sales analytics.",
+          "A quick walk-through: the tenant dashboard, sales trends, and business analytics.",
+        src: "/videos/adeera/architecture-tour.mp4",
+        poster: "/videos/adeera/architecture-tour-poster.png",
       },
       {
         title: "Setting Up Retail & Service Blueprints",
         description:
-          "Configuring permission roles, product variations, and location stock levels.",
+          "Configuring product attributes, variations, and catalog structure.",
+        src: "/videos/adeera/setup-tour.mp4",
+        poster: "/videos/adeera/setup-tour-poster.png",
+      },
+      {
+        title: "Extended Platform Walkthrough",
+        description:
+          "A longer tour covering reports, credit management, and plan settings.",
+        src: "/videos/adeera/extended-tour.mp4",
+        poster: "/videos/adeera/extended-tour-poster.png",
       },
     ],
     highlights: [
@@ -119,8 +136,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "adeera-pos",
-    name: "Adeera Desktop POS",
+    slug: "kesholabs-pos",
+    name: "Kesho Labs POS",
     tagline: "High-speed desktop checkout app for Windows counters",
     category: "Desktop Application",
     summary:
@@ -129,12 +146,12 @@ export const projects: Project[] = [
       problem:
         "A busy counter can't run on a cloud dashboard. Cashiers need speed a browser tab can't give them, receipts have to print instantly on real hardware, and the till can't stop working every time the internet does.",
       built:
-        "A dedicated Windows desktop app built for the counter: keyboard-first checkout, barcode scanner support, direct thermal receipt printing, and a local database that keeps sales flowing offline and syncs to the Adeera cloud when the connection returns.",
+        "A dedicated Windows desktop app built for the counter: keyboard-first checkout, barcode scanner support, direct thermal receipt printing, and a local database that keeps sales flowing offline and syncs to the cloud when the connection returns.",
       result:
         "A sale takes seconds from scan to printed receipt — there's a recording of a full checkout in under 30 seconds in the demos. Thirteen-plus releases have shipped through silent background auto-updates, so counters are never interrupted for an upgrade.",
     },
     description: [
-      "Adeera POS is the counter-facing client of the Adeera platform. Built with Electron, React, and TypeScript, it delivers a smooth desktop UI designed for high-volume sales transactions.",
+      "Kesho Labs POS is a standalone counter-facing checkout app. Built with Electron, React, and TypeScript, it delivers a smooth desktop UI designed for high-volume sales transactions.",
       "Ships with an automated CI release pipeline: one-click Windows installer, dual update channels (stable and beta), and instant background auto-updates.",
       "Direct hardware integration powers thermal receipt printers, cash drawers, and USB/Bluetooth barcode scanners out of the box.",
     ],
@@ -162,7 +179,7 @@ export const projects: Project[] = [
       },
       {
         title: "Backend cloud synchronization",
-        description: "Syncs inventory, product pricing, and sales data with the Adeera cloud.",
+        description: "Syncs inventory, product pricing, and sales data with the cloud.",
       },
     ],
     stack: [
@@ -174,35 +191,35 @@ export const projects: Project[] = [
       "GitHub Actions",
     ],
     screenshots: [
-      { label: "Checkout & Catalog View", src: "/screenshots/adeera-pos/checkout-catalog.png" },
-      { label: "Barcode Scanning & Search", src: "/screenshots/adeera-pos/barcode-search.png" },
-      { label: "Building a Sale (Cart)", src: "/screenshots/adeera-pos/cart-built.png" },
-      { label: "Payment & Change Calculator", src: "/screenshots/adeera-pos/payment-modal.png" },
-      { label: "Receipt Confirmation", src: "/screenshots/adeera-pos/receipt-confirmation.png" },
-      { label: "Inventory & Stock Levels", src: "/screenshots/adeera-pos/inventory.png" },
-      { label: "Daily Sales & Revenue Reports", src: "/screenshots/adeera-pos/reports.png" },
+      { label: "Checkout & Catalog View", src: "/screenshots/kesholabs-pos/checkout-catalog.png" },
+      { label: "Barcode Scanning & Search", src: "/screenshots/kesholabs-pos/barcode-search.png" },
+      { label: "Building a Sale (Cart)", src: "/screenshots/kesholabs-pos/cart-built.png" },
+      { label: "Payment & Change Calculator", src: "/screenshots/kesholabs-pos/payment-modal.png" },
+      { label: "Receipt Confirmation", src: "/screenshots/kesholabs-pos/receipt-confirmation.png" },
+      { label: "Inventory & Stock Levels", src: "/screenshots/kesholabs-pos/inventory.png" },
+      { label: "Daily Sales & Revenue Reports", src: "/screenshots/kesholabs-pos/reports.png" },
     ],
     videos: [
       {
         title: "Making a sale in under 30 seconds",
         description:
           "From scanning items to quick cash checkout and printing receipt.",
-        src: "/videos/adeera-pos/making-a-sale.webm",
-        poster: "/videos/adeera-pos/making-a-sale-poster.png",
+        src: "/videos/kesholabs-pos/making-a-sale.webm",
+        poster: "/videos/kesholabs-pos/making-a-sale-poster.png",
       },
       {
         title: "Managing stock & inventory",
         description:
           "Tracking stock alerts, adjusting quantities, and adding products.",
-        src: "/videos/adeera-pos/inventory-tour.webm",
-        poster: "/videos/adeera-pos/inventory-tour-poster.png",
+        src: "/videos/kesholabs-pos/inventory-tour.webm",
+        poster: "/videos/kesholabs-pos/inventory-tour-poster.png",
       },
       {
         title: "Reports & shift totals",
         description:
           "Viewing daily revenue, tax collected, and shift transaction details.",
-        src: "/videos/adeera-pos/reports-tour.webm",
-        poster: "/videos/adeera-pos/reports-tour-poster.png",
+        src: "/videos/kesholabs-pos/reports-tour.webm",
+        poster: "/videos/kesholabs-pos/reports-tour-poster.png",
       },
     ],
     highlights: [

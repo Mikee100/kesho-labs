@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: Props) {
       description: project.summary,
       applicationCategory: "BusinessApplication",
       operatingSystem:
-        project.slug === "adeera-pos" ? "Windows" : "Web browser",
+        project.slug === "kesholabs-pos" ? "Windows" : "Web browser",
       url: `${SITE_URL}/projects/${project.slug}`,
       author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     },

@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "kesho-labs",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "-p", "3001"],
+      "port": 3001
+    },
+    {
+      "name": "adeera-frontend",
+      "port": 5000,
+      "url": "http://localhost:5000"
+    },
+    {
+      "name": "adeera-backend",
+      "port": 7050,
+      "url": "http://localhost:7050"
+    }
+  ]
+}
