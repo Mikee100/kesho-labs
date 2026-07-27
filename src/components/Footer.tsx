@@ -65,10 +65,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/projects/adeera-pos"
+                    href="/projects/kesholabs-pos"
                     className="hover:text-zinc-900 dark:hover:text-white transition-colors"
                   >
-                    Adeera POS
+                    Kesho Labs POS
                   </Link>
                 </li>
                 <li>

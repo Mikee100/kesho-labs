@@ -33,10 +33,10 @@ const process = [
 ];
 
 const stripShots = [
-  { src: "/screenshots/adeera-pos/payment-modal.png", alt: "Adeera POS — payment" },
-  { src: "/screenshots/adeera-pos/reports.png", alt: "Adeera POS — sales reports" },
+  { src: "/screenshots/kesholabs-pos/payment-modal.png", alt: "Kesho Labs POS — payment" },
+  { src: "/screenshots/kesholabs-pos/reports.png", alt: "Kesho Labs POS — sales reports" },
   { src: "/screenshots/fiesta-house-attire/home.png", alt: "Fiesta House Attire — homepage" },
-  { src: "/screenshots/adeera-pos/inventory.png", alt: "Adeera POS — inventory" },
+  { src: "/screenshots/kesholabs-pos/inventory.png", alt: "Kesho Labs POS — inventory" },
   { src: "/screenshots/fiesta-house-attire/pricing.png", alt: "Fiesta House Attire — pricing" },
 ];
 
@@ -101,8 +101,8 @@ export default function Home() {
         {/* Hero visual — real product, plain frame */}
         <div className="mt-12 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
           <img
-            src="/screenshots/adeera-pos/checkout-catalog.png"
-            alt="Adeera Desktop POS — checkout screen"
+            src="/screenshots/kesholabs-pos/checkout-catalog.png"
+            alt="Kesho Labs POS — checkout screen"
             className="w-full object-cover object-top"
           />
         </div>
