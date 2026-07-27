@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
@@ -99,11 +99,14 @@ export default function Home() {
         </div>
 
         {/* Hero visual — real product, plain frame */}
-        <div className="mt-12 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <img
+        <div className="relative mt-12 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 sm:aspect-[16/8]">
+          <Image
             src="/screenshots/kesholabs-pos/checkout-catalog.png"
             alt="Kesho Labs POS — checkout screen"
-            className="w-full object-cover object-top"
+            fill
+            priority
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            className="object-cover object-top"
           />
         </div>
       </section>
@@ -217,12 +220,19 @@ export default function Home() {
           {[0, 1].map((half) => (
             <div key={half} className="flex gap-4 pr-4" aria-hidden={half === 1}>
               {stripShots.map((s) => (
-                <img
+                <div
                   key={s.src}
-                  src={s.src}
-                  alt={half === 0 ? s.alt : ""}
-                  className="h-52 w-auto shrink-0 rounded-xl border border-zinc-200 object-cover object-top dark:border-zinc-800 md:h-64"
-                />
+                  className="relative h-52 w-[260px] shrink-0 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 md:h-64 md:w-[320px]"
+                >
+                  <Image
+                    src={s.src}
+                    alt={half === 0 ? s.alt : ""}
+                    fill
+                    sizes="320px"
+                    loading={half === 0 ? "eager" : "lazy"}
+                    className="object-cover object-top"
+                  />
+                </div>
               ))}
             </div>
           ))}

@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 
@@ -58,10 +58,12 @@ export default function ProjectCard({
         >
           <div className="relative aspect-[16/10] w-full bg-zinc-50 dark:bg-zinc-900">
             {primaryScreenshot?.src ? (
-              <img
+              <Image
                 src={primaryScreenshot.src}
                 alt={project.name}
-                className="h-full w-full object-cover object-top"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-top"
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center">
