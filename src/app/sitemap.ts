@@ -11,14 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: path === "" ? 1 : 0.8,
   }));
 
   const projectPages: MetadataRoute.Sitemap = projects.map((p) => ({
     url: `${BASE_URL}/projects/${p.slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
   }));

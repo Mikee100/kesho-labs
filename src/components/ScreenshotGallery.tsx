@@ -1,7 +1,7 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
 import type { Screenshot } from "@/data/projects";
 
@@ -53,10 +53,13 @@ export default function ScreenshotGallery({
             >
               <div className="relative aspect-video w-full overflow-hidden">
                 {s.src ? (
-                  <img
+                  <Image
                     src={s.src}
                     alt={`${projectName} — ${s.label}`}
-                    className="h-full w-full object-cover object-top"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    loading={idx < 3 ? "eager" : "lazy"}
+                    className="object-cover object-top"
                   />
                 ) : (
                   <div className="flex h-full flex-col items-center justify-center gap-2 text-zinc-400 dark:text-zinc-600">
@@ -94,6 +97,7 @@ export default function ScreenshotGallery({
 
           <div className="relative flex max-h-[80vh] w-full max-w-5xl items-center justify-center">
             {screenshots[selectedIndex].src && (
+              // eslint-disable-next-line @next/next/no-img-element -- unknown intrinsic size, rendered only on user interaction
               <img
                 src={screenshots[selectedIndex].src}
                 alt={screenshots[selectedIndex].label}

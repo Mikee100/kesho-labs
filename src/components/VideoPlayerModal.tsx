@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Play, X, Film } from "lucide-react";
 import type { Video } from "@/data/projects";
 
@@ -18,11 +19,12 @@ export default function VideoPlayerModal({ video }: { video: Video }) {
         {/* Poster */}
         <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950">
           {video.poster ? (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
+            <Image
               src={video.poster}
               alt={video.title}
-              className="h-full w-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
