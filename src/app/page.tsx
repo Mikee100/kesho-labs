@@ -112,7 +112,7 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 pt-28 md:pt-36">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white md:text-3xl">
-            Three products, live in production.
+            Four products, live in production.
           </h2>
           <Link
             href="/projects"

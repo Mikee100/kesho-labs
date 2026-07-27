@@ -312,6 +312,92 @@ export const projects: Project[] = [
       { label: "Status", value: "Live Production" },
     ],
   },
+  {
+    slug: "caseproz",
+    name: "CaseProz",
+    tagline: "Online shop for tech accessories, cases & gadgets in Kenya",
+    category: "E-commerce & Web Platform",
+    summary:
+      "A full-featured online store for phone cases, audio gear, chargers, and gaming accessories, with browsable categories, wishlists, Google sign-in, and M-Pesa checkout.",
+    caseStudy: {
+      problem:
+        "Independent tech and accessory retailers often have great stock but no real storefront — customers can't browse the full catalog, save what they like, or check out without a DM back and forth.",
+      built:
+        "A complete online shop: category browsing across phones, laptops, audio, and gaming gear, wishlists and cart tied to a shopper's account, Google or email sign-in, and a guided Lipa na M-Pesa checkout — backed by a custom admin dashboard for managing products, categories, and brands.",
+      result:
+        "Shoppers browse, save favourites, and pay with M-Pesa in a few taps instead of messaging back and forth. The store owner manages the entire catalog — products, categories, brands, and images — through a dashboard, without touching code.",
+    },
+    description: [
+      "CaseProz is a full-featured online shop for tech accessories, phone cases, audio gear, and gaming products in Kenya, with hand-picked deals, flash sales, and weekly new arrivals.",
+      "Shoppers browse by category — phones & tablets, computers & laptops, audio & headphones, and gaming — save favourites to a wishlist, and sign in with Google or a standard account.",
+      "Checkout supports guided Lipa na M-Pesa payment instructions, and a custom admin dashboard lets the store owner manage products, categories, and brands without touching code.",
+    ],
+    liveUrl: "https://caseproz.vercel.app",
+    features: [
+      {
+        title: "Product catalog & categories",
+        description: "Phones, laptops, audio, and gaming gear organized into browsable categories and brands.",
+      },
+      {
+        title: "Flash sales & deals",
+        description: "Time-boxed discounts and a dedicated section highlighting the biggest savings.",
+      },
+      {
+        title: "Wishlist & cart",
+        description: "Favourites and cart persisted to the shopper's account.",
+      },
+      {
+        title: "Google & email sign-in",
+        description: "OAuth login alongside standard email/password accounts.",
+      },
+      {
+        title: "M-Pesa checkout",
+        description: "Guided Lipa na M-Pesa payment instructions at checkout, with a card option.",
+      },
+      {
+        title: "Custom admin dashboard",
+        description: "Manage products, categories, brands, and images without touching code.",
+      },
+    ],
+    stack: [
+      "React 19",
+      "Vite",
+      "React Router",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Cloudinary",
+      "Google OAuth",
+      "Vercel",
+    ],
+    screenshots: [
+      { label: "Homepage Hero", src: "/screenshots/caseproz/home.png" },
+      { label: "Top Categories", src: "/screenshots/caseproz/categories.png" },
+      { label: "Featured Products", src: "/screenshots/caseproz/featured-products.png" },
+      { label: "Product Listings & Pricing", src: "/screenshots/caseproz/product-pricing.png" },
+      { label: "Category Navigation", src: "/screenshots/caseproz/shop-menu.png" },
+      { label: "Shop by Brand", src: "/screenshots/caseproz/shop-by-brand.png" },
+      { label: "Product Detail Page", src: "/screenshots/caseproz/product-detail.png" },
+      { label: "Cart & Delivery Selection", src: "/screenshots/caseproz/cart.png" },
+      { label: "M-Pesa Checkout", src: "/screenshots/caseproz/checkout.png" },
+      { label: "Shipping & Order Summary", src: "/screenshots/caseproz/checkout-shipping.png" },
+      { label: "Order History", src: "/screenshots/caseproz/orders.png" },
+    ],
+    videos: [
+      {
+        title: "Shopping on CaseProz",
+        description:
+          "Browsing categories, adding to cart, and checking out with M-Pesa.",
+        src: "/videos/caseproz/shopping-flow.mp4",
+        poster: "/videos/caseproz/shopping-flow-poster.png",
+      },
+    ],
+    highlights: [
+      { label: "Type", value: "E-commerce Store" },
+      { label: "Payments", value: "M-Pesa" },
+      { label: "Status", value: "Live Production" },
+    ],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
