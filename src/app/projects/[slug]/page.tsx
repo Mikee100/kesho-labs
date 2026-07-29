@@ -214,6 +214,66 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Modules — sub-products shipped as part of the platform */}
+      {project.modules?.map((mod) => {
+        const modShots = mod.screenshots.filter((s) => s.src);
+        const modVideos = mod.videos.filter((v) => v.src || v.youtubeId);
+
+        return (
+          <section
+            key={mod.slug}
+            id={mod.slug}
+            className="mt-16 border-t border-zinc-200 pt-12 dark:border-zinc-800"
+          >
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+              Platform module
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-3xl">
+              {mod.name}
+            </h2>
+            <p className="mt-3 max-w-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              {mod.tagline}
+            </p>
+
+            <div className="mt-6 max-w-3xl space-y-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
+              {mod.description.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+              {mod.features.map((f, i) => (
+                <div key={i}>
+                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
+                    {f.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    {f.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {modShots.length > 0 && (
+              <div className="mt-12">
+                <ScreenshotGallery
+                  screenshots={modShots}
+                  projectName={mod.name}
+                />
+              </div>
+            )}
+
+            {modVideos.length > 0 && (
+              <div className="mt-10 grid gap-6 md:grid-cols-2">
+                {modVideos.map((v, idx) => (
+                  <VideoCard key={idx} video={v} />
+                ))}
+              </div>
+            )}
+          </section>
+        );
+      })}
+
       {/* Next project */}
       <section className="mt-20">
         <Link
