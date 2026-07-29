@@ -21,6 +21,20 @@ export type CaseStudy = {
   result: string;
 };
 
+/**
+ * A distinct sub-product that ships as part of a larger platform — rendered as
+ * its own section (with its own gallery and videos) on the project page.
+ */
+export type ProjectModule = {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string[];
+  features: { title: string; description: string }[];
+  screenshots: Screenshot[];
+  videos: Video[];
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -35,6 +49,7 @@ export type Project = {
   screenshots: Screenshot[];
   videos: Video[];
   highlights: { label: string; value: string }[];
+  modules?: ProjectModule[];
 };
 
 export const projects: Project[] = [
@@ -133,6 +148,128 @@ export const projects: Project[] = [
       { label: "Business types", value: "3+" },
       { label: "Architecture", value: "Multi-tenant" },
       { label: "Status", value: "Live SaaS" },
+    ],
+    modules: [
+      {
+        slug: "pos-general",
+        name: "Adeera POS — Retail",
+        tagline: "The counter-facing till for shops, pharmacies, and general retail",
+        description: [
+          "Every Adeera tenant gets a desktop till that talks straight to the platform. Cashiers work from a keyboard-first checkout: search or scan a product, pick a size/colour variation, and build the sale in the cart panel while stock counts update live.",
+          "Payments cover cash with automatic change calculation, M-Pesa, credit (pay later), and split payments across several methods at once. Every completed sale produces a receipt and an 80mm thermal print preview ready for the counter printer.",
+          "The till keeps working when the network doesn't: sales queue offline, then reconcile against the backend with a stock-drift parity report once the connection returns.",
+        ],
+        features: [
+          {
+            title: "Variation-aware catalog",
+            description: "Filter by colour, size, or SKU before adding an item — stock is tracked per variation.",
+          },
+          {
+            title: "Split & multi-method payments",
+            description: "Cash, M-Pesa, and credit on a single sale, with the remaining balance tracked live.",
+          },
+          {
+            title: "Thermal receipt printing",
+            description: "80mm ESC/POS preview and direct printing, with auto-open cash drawer on cash payments.",
+          },
+          {
+            title: "Multi-branch switching",
+            description: "One terminal can serve any branch the cashier is authorized for.",
+          },
+          {
+            title: "Offline queue & drift parity",
+            description: "Sales continue offline and reconcile on reconnect with a stock-drift report.",
+          },
+          {
+            title: "Shift control & staff PINs",
+            description: "Open and close shifts, lock the cashier, and gate secure actions behind per-staff PINs.",
+          },
+        ],
+        screenshots: [
+          { label: "Checkout & Product Catalog", src: "/screenshots/adeera-pos-general/checkout-catalog.png" },
+          { label: "Variation Picker (Size & Colour)", src: "/screenshots/adeera-pos-general/variation-picker.png" },
+          { label: "Building a Sale", src: "/screenshots/adeera-pos-general/cart-built.png" },
+          { label: "Checkout & Payment Methods", src: "/screenshots/adeera-pos-general/checkout-payment.png" },
+          { label: "Split Payment (Cash + M-Pesa)", src: "/screenshots/adeera-pos-general/split-payment.png" },
+          { label: "Cash Tendered & Change Due", src: "/screenshots/adeera-pos-general/cash-change.png" },
+          { label: "Completed Sale Receipt", src: "/screenshots/adeera-pos-general/receipt.png" },
+          { label: "Thermal Receipt Print Preview", src: "/screenshots/adeera-pos-general/print-preview.png" },
+          { label: "Multi-Branch Switching", src: "/screenshots/adeera-pos-general/branch-switcher.png" },
+          { label: "Shift, Sync & Offline Queue", src: "/screenshots/adeera-pos-general/shift-menu.png" },
+          { label: "Printer & Cash Drawer Setup", src: "/screenshots/adeera-pos-general/printer-settings.png" },
+          { label: "Catalog Sync & Stock Drift", src: "/screenshots/adeera-pos-general/catalog-sync.png" },
+          { label: "Update Channels & Releases", src: "/screenshots/adeera-pos-general/app-updates.png" },
+        ],
+        videos: [
+          {
+            title: "Making a sale on the retail till",
+            description:
+              "Searching the catalog, picking variations, taking payment, and printing the receipt.",
+            src: "/videos/adeera-pos-general/making-a-sale.mp4",
+            poster: "/videos/adeera-pos-general/making-a-sale-poster.png",
+          },
+        ],
+      },
+      {
+        slug: "pos-restaurant",
+        name: "Adeera POS — Restaurant",
+        tagline: "Table service, kitchen dispatch, and floor management for restaurants & bars",
+        description: [
+          "Tenants on the restaurant blueprint get a different till entirely. Service starts with a waiter check-in PIN, then orders are built against a numbered table from a menu split into meals, bar, drinks, desserts, and ingredients — each item showing live availability.",
+          "Orders move through a real service pipeline: Open → Sent to Kitchen → Served → Closed. The kitchen display board shows live tickets by lane with elapsed timers, while the orders board lets any waiter cook, serve, or void a ticket.",
+          "Beyond service, the module covers a visual floor plan with per-table seat maps and occupancy, reservations with booked/arrived/seated/no-show tracking, BOM recipe costing that ties menu items to ingredient stock, and a full audit log of every status change.",
+        ],
+        features: [
+          {
+            title: "Waiter check-in & PIN",
+            description: "Each waiter checks in before taking orders, so every ticket is attributable.",
+          },
+          {
+            title: "Table service orders",
+            description: "Orders bound to numbered tables, with discounts and per-item quantity control.",
+          },
+          {
+            title: "Kitchen display board",
+            description: "Live lanes for Open, Sent to Kitchen, Served, and Closed with on-time timers.",
+          },
+          {
+            title: "Visual floor plan",
+            description: "Seat maps per table showing capacity, occupancy, and the open order total.",
+          },
+          {
+            title: "Reservations",
+            description: "Book tables ahead and track booked, arrived, seated, no-show, and cancelled.",
+          },
+          {
+            title: "BOM recipe costing",
+            description: "Tie menu items to ingredient bills of materials for per-plate cost and stock draw-down.",
+          },
+        ],
+        screenshots: [
+          { label: "Menu & Current Order", src: "/screenshots/adeera-pos-restaurant/menu-ordering.png" },
+          { label: "Waiter Check-In", src: "/screenshots/adeera-pos-restaurant/waiter-checkin.png" },
+          { label: "Table Floor Plan & Seating", src: "/screenshots/adeera-pos-restaurant/table-floor-plan.png" },
+          { label: "Kitchen Display Board", src: "/screenshots/adeera-pos-restaurant/kitchen-display.png" },
+          { label: "Orders Board & Ticket Actions", src: "/screenshots/adeera-pos-restaurant/orders-board.png" },
+          { label: "Meals Menu & Availability", src: "/screenshots/adeera-pos-restaurant/meals-menu.png" },
+          { label: "Bar Menu & Stock Status", src: "/screenshots/adeera-pos-restaurant/bar-menu.png" },
+          { label: "Settling the Bill", src: "/screenshots/adeera-pos-restaurant/payment.png" },
+          { label: "Reservations & Guest Status", src: "/screenshots/adeera-pos-restaurant/reservations.png" },
+          { label: "BOM Recipe Builder & Costing", src: "/screenshots/adeera-pos-restaurant/bom-recipes.png" },
+          { label: "Restaurant Activity Log", src: "/screenshots/adeera-pos-restaurant/activity-log.png" },
+          { label: "Staff Accounts & PINs", src: "/screenshots/adeera-pos-restaurant/staff-accounts.png" },
+          { label: "Terminal Enrollment", src: "/screenshots/adeera-pos-restaurant/terminal-enrollment.png" },
+        ],
+        videos: [
+          {
+            title: "Table service, kitchen dispatch & settling a bill",
+            description:
+              "Checking in a waiter, building a table order, sending it to the kitchen, and closing it out.",
+            src: "/videos/adeera-pos-restaurant/table-service-flow.mp4",
+            poster: "/videos/adeera-pos-restaurant/table-service-flow-poster.png",
+          },
+        ],
+      },
     ],
   },
   {
